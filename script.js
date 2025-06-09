@@ -1,0 +1,142 @@
+const ws = new WebSocket("ws://192.168.2.102:3500")
+
+let input = document.getElementById("wert");
+input.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    document.getElementById("farbe").click();
+  }
+});
+
+function farbe(){
+    let kategorie = document.getElementById('wert').value;
+    let art = document.getElementById('art').value;
+    let color = document.getElementById('wert');
+    let green = 'rgba(0, 255, 0, 0.5)';
+    let yellow = 'rgba(255, 255, 0, 0.5)';
+    let red = 'rgba(255, 0, 0, 0.5)';
+    let lightgrey = 'lightgrey';
+
+    let inputTable = document.getElementById('inputList');
+    let row = inputTable.insertRow(0);
+    let cellOne = row.insertCell(0);
+    let cellTwo = row.insertCell(1);
+
+    cellOne.innerHTML = art;
+    cellTwo.innerHTML = kategorie;
+
+
+    switch  (art){
+        case 'Gesamtkeimzahl':
+            if(kategorie === '<50000' || kategorie >= 1000 && kategorie < 50000){
+                color.style.backgroundColor = green;
+            }
+            else if(kategorie >= 50000 && kategorie < 5000000){
+                color.style.backgroundColor = yellow;
+            }
+            else if(kategorie >= 5000000 && kategorie <= 50000000){
+                color.style.backgroundColor = red;
+            } else {
+                color.style.backgroundColor = lightgrey;
+            }
+            break;
+
+        case 'E.coli':
+            if(kategorie === '<100' || kategorie > 0 && kategorie < 100){
+                color.style.backgroundColor = green;
+            }
+            else if(kategorie >= 100 && kategorie < 500){
+                color.style.backgroundColor = yellow;
+            }
+            else if(kategorie >= 500 && kategorie <= 5000){
+                color.style.backgroundColor = red;
+            } else {
+                color.style.backgroundColor = lightgrey;
+            }
+            break;
+
+        case 'Salmonellen':
+            if(kategorie === 'negativ'){
+                color.style.backgroundColor = green;
+            }
+            else if(kategorie === 'positiv'){
+                color.style.backgroundColor = red;
+            } else {
+                color.style.backgroundColor = lightgrey;
+            }
+            break;
+
+        case 'Listerien':
+            if(kategorie === 'negativ'){
+                color.style.backgroundColor = green;
+            }
+            else if(kategorie === 'positiv'){
+                color.style.backgroundColor = red;
+            } else {
+                color.style.backgroundColor = lightgrey;
+            }
+            break;
+
+        case 'koagulase positive Staphylokokken':
+            if(kategorie === '<100' || kategorie > 0 && kategorie < 100){
+                color.style.backgroundColor = green;
+            }
+            else if(kategorie >= 100 && kategorie < 500){
+                color.style.backgroundColor = yellow;
+            }
+            else if(kategorie >= 500 && kategorie <= 5000){
+                color.style.backgroundColor = red;
+            } else {
+                color.style.backgroundColor = lightgrey;
+            }
+            break;
+
+        case 'Enterobacteriaceae':
+            if(kategorie === '<1000' || kategorie > 100 && kategorie < 1000){
+                color.style.backgroundColor = green;
+            }
+            else if(kategorie >= 1000 && kategorie < 5000){
+                color.style.backgroundColor = yellow;
+            }
+            else if(kategorie >= 5000 && kategorie <= 50000){
+                color.style.backgroundColor = red;
+            } else {
+                color.style.backgroundColor = lightgrey;
+            }
+            break;
+        default:
+    }
+};
+
+function myPlaceholder(){
+    let art = document.getElementById('art').value;
+    let myInput = document.getElementsByName('wert')[0];
+
+    switch  (art){
+        case 'Gesamtkeimzahl':
+            myInput.placeholder='(<50 000/1000 - 50 000 000)';
+            break;
+
+        case 'E.coli':
+            myInput.placeholder='(<100/1 - 5000)';
+            break;
+
+        case 'Salmonellen':
+            myInput.placeholder='(negativ / positiv)';
+            break;
+
+        case 'Listerien':
+            myInput.placeholder='(negativ / positiv)';
+            break;
+
+        case 'koagulase positive Staphylokokken':
+            myInput.placeholder='(<100/1 - 5000)';
+            break;
+
+        case 'Enterobacteriaceae':
+            myInput.placeholder='(<1000/100 - 50 000)';
+            break;
+
+        default:
+            myInput.placeholder='Wert';
+    }
+};

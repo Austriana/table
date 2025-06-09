@@ -1,0 +1,23 @@
+{
+  "led": {
+    "R": {
+      "status": "aus",
+      "value": 0,
+      "id": "red"
+    },
+    "G": {
+      "status": "aus",
+      "value": 1,
+      "id": "gelb"
+    },
+    "B": {
+      "status": "aus",
+      "value": 0,
+      "id": "blau"
+    }
+  },
+  "dht": {
+    "Temperature": "24 Grad",
+    "Luftfeuchtigkeit": "45 %"
+  }
+}

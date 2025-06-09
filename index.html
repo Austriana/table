@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Website</title>
+</head>
+<body>
+    <header>
+   </header>    
+    <main>
+        <table class="farbschema">
+            <thead>
+                <tr class="headerOne">
+                    <th colspan="4">Mikrobiologische Kriterien Innereien/Organe</th>
+                </tr>
+                <tr class="headerTwo">
+                    <td colspan="2">Gesamtkeimzahl</td>
+                    <td colspan="2">Enterobacteriaceae</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="headerThree">
+                    <td>KBE/g</td>
+                    <td>Kategorie</td>
+                    <td>KBE/g</td>
+                    <td>Kategorie</td>
+                </tr>
+                <tr class="gruen">
+                    <td>< 50000</td>
+                    <td>kleiner Richtwert</td>
+                    <td>< 1000</td>
+                    <td>kleiner Richtwert</td>
+                </tr>
+                <tr class="gelb">
+                    <td>50000 - 5000000</td>
+                    <td>größer Richtwert</td>
+                    <td>1000 - 5000</td>
+                    <td>größer Richtwert</td>
+                </tr>
+                <tr class="rot">
+                    <td>> 5000000</td>
+                    <td>größer Warnwert</td>
+                    <td>> 5000</td>
+                    <td>größer Warnwert</td>
+                </tr>
+                <tr class="headerTwo">
+                    <td colspan="2">E.coli</td>
+                    <td colspan="2">koagulase positive Staphylokokken</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="headerThree">
+                    <td>KBE/g</td>
+                    <td>Kategorie</td>
+                    <td>KBE/g</td>
+                    <td>Kategorie</td>
+                </tr>
+                <tr class="gruen">
+                    <td>< 100</td>
+                    <td>kleiner Richtwert</td>
+                    <td>< 100</td>
+                    <td>kleiner Richtwert</td>
+                </tr>
+                <tr class="gelb">
+                    <td>100 - 500</td>
+                    <td>größer Richtwert</td>
+                    <td>100 - 500</td>
+                    <td>größer Richtwert</td>
+                </tr>
+                <tr class="rot">
+                    <td>> 500</td>
+                    <td>größer Warnwert</td>
+                    <td>> 500</td>
+                    <td>größer Warnwert</td>
+                </tr>
+                <tr class="headerTwo">
+                    <td colspan="2">Salmonellen</td>
+                    <td colspan="2">Listerien</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="headerThree">
+                    <td>/25g</td>
+                    <td>Kategorie</td>
+                    <td>/25g</td>
+                    <td>Kategorie</td>
+                </tr>
+                <tr class="gruen">
+                    <td>negativ</td>
+                    <td>kleiner Warnwert</td>
+                    <td>negativ</td>
+                    <td>kleiner Warnwert</td>
+                </tr>
+                <tr class="rot">
+                    <td>positiv</td>
+                    <td>größer Warnwert</td>
+                    <td>positiv</td>
+                    <td>größer Warnwert</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">*** copyright by Sarah Ataman Ms.of Sc.***</td>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+        <br>
+        <input oninput="myPlaceholder()" list="arten" id="art" name="art" placeholder="Art" required />
+        <datalist id="arten">
+            <option value="Gesamtkeimzahl"></option>
+            <option value="E.coli"></option>
+            <option value="Salmonellen"></option>
+            <option value="Enterobacteriaceae"></option>
+            <option value="koagulase positive Staphylokokken"></option>
+            <option value="Listerien"></option>
+        </datalist>
+        <input list="werte" id="wert" name="wert" placeholder="Wert" required />
+        <button onclick="farbe()" type="button" id="farbe">Submit</button>
+        <br><br>
+        <table>
+            <thead><th colspan="4" >Input Liste</th></thead>
+            <tbody id="inputList">
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </main>
+    <footer></footer>
+</body>
+</html>
