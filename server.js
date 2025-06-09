@@ -30,11 +30,11 @@ const readScript = await fsPromise.readFile('script.js','utf-8', (err) => {
     }
 });
 
-const readJson = await fsPromise.readFile('new_json.json','utf-8', (err) => {
+const readJson = await fsPromise.readFile('json.json','utf-8', (err) => {
     if (err){
         console.log(err);
     } else {
-        console.log(`new_json.json read success`);
+        console.log(`json.json read success`);
     }
 });
 
