@@ -117,5 +117,3 @@ server.on('upgrade', (request, socket, head) => {
 server.listen(PORT, HOST, () => {
     console.log(`Server runs on http://${HOST}:${PORT}`);
 });
-
-
