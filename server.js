@@ -50,14 +50,14 @@ const writeFile = (myFileName, dataObj, add) => {
     })
 };
 
-const handleJsonFile = (myFileName, add) => {
+const handleJsonFile = (myFileName) => {
     fs.readFile(myFileName, (err, data) => {
         if (err){
             console.log(err);
         } else {
             console.log(`read ${myFileName} success!`);
             const dataObj = JSON.parse(data);
-            writeFile('new_json.json', dataObj, add);
+            writeFile('new_json.json', dataObj);
         }
     })
 };
