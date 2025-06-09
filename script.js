@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://192.168.2.102:3500")
+const ws = new WebSocket("ws://localhost:3500")
 
 let input = document.getElementById("wert");
 input.addEventListener("keypress", (event) => {

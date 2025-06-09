@@ -50,13 +50,14 @@ const writeFile = (myFileName, dataObj, add) => {
     })
 };
 
-const handleJsonFile = (myFileName) => {
+const handleJsonFile = (myFileName, add) => {
     fs.readFile(myFileName, (err, data) => {
         if (err){
             console.log(err);
         } else {
             console.log(`read ${myFileName} success!`);
             const dataObj = JSON.parse(data);
+            console.log(add);
             writeFile('new_json.json', dataObj);
         }
     })
@@ -88,7 +89,8 @@ const handleClient = (req, res) => {
                 res.write('<h1>Upps something went wrong!</h1>');
                 } else {
                 res.write(readJson);
-                handleJsonFile('json.json');
+                let add = req.url;
+                handleJsonFile('json.json', add);
             }
             break;
 
