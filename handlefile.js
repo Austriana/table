@@ -60,10 +60,10 @@ const handleJsonFile = (myFileName, add) => {
 };
 
 module.exports={
-    handleJsonFile,
-    writeFile,
     readJson,
     readScript,
     readCss,
-    readHtml
+    readHtml,
+    handleJsonFile,
+    writeFile
 }
