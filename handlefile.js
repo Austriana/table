@@ -2,7 +2,7 @@ import fsPromise from 'node:fs/promises';
 import fs from 'node:fs';
 
 
-const readHtml = await fsPromise.readFile('index.html', 'utf-8', (err) => {
+export const readHtml = await fsPromise.readFile('index.html', 'utf-8', (err) => {
     if (err){
         console.log(err);
     } else {
@@ -10,7 +10,7 @@ const readHtml = await fsPromise.readFile('index.html', 'utf-8', (err) => {
     }
 });
 
-const readCss = await fsPromise.readFile('style.css','utf-8', (err) => {
+export const readCss = await fsPromise.readFile('style.css','utf-8', (err) => {
     if (err){
         console.log(err);
     } else {
@@ -18,7 +18,7 @@ const readCss = await fsPromise.readFile('style.css','utf-8', (err) => {
     }
 });
 
-const readScript = await fsPromise.readFile('script.js','utf-8', (err) => {
+export const readScript = await fsPromise.readFile('script.js','utf-8', (err) => {
     if (err){
         console.log(err);
     } else {
@@ -26,7 +26,7 @@ const readScript = await fsPromise.readFile('script.js','utf-8', (err) => {
     }
 });
 
-const readJson = await fsPromise.readFile('json.json','utf-8', (err) => {
+export const readJson = await fsPromise.readFile('json.json','utf-8', (err) => {
     if (err){
         console.log(err);
     } else {
@@ -34,7 +34,7 @@ const readJson = await fsPromise.readFile('json.json','utf-8', (err) => {
     }
 });
 
-const writeFile = (myFileName, dataObj, add) => {
+export const writeFile = (myFileName, dataObj, add) => {
     Object.assign(dataObj, add);
     const dataString = JSON.stringify(dataObj, null, 2);
     fs.writeFile(myFileName, dataString, (err) => {
@@ -46,7 +46,7 @@ const writeFile = (myFileName, dataObj, add) => {
     })
 };
 
-const handleJsonFile = (myFileName, add) => {
+export const handleJsonFile = (myFileName, add) => {
     fs.readFile(myFileName, (err, data) => {
         if (err){
             console.log(err);
@@ -58,12 +58,3 @@ const handleJsonFile = (myFileName, add) => {
         }
     })
 };
-
-module.exports={
-    readJson,
-    readScript,
-    readCss,
-    readHtml,
-    handleJsonFile,
-    writeFile
-}
