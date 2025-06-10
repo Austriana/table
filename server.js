@@ -1,7 +1,7 @@
 import http from 'node:http';
 import WebSocket, {WebSocketServer} from 'ws';
 
-import { handleJsonFile, writeFile, readJson, readScript, readCss, readHtml } from "./handlefile.js";
+import { writeFile, readJson, readScript, readCss, readHtml, handleJsonFile } from "./handlefile.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
