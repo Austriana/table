@@ -3,8 +3,11 @@ import fsPromise from 'node:fs/promises';
 import fs from 'node:fs';
 import WebSocket, {WebSocketServer} from 'ws';
 
-const PORT = process.env.PORT || 3500;
-const HOST = process.env.HOST || 'localhost';
+import dotenv from 'dotenv';
+dotenv.config();
+
+let PORT = process.env.PORT;
+let HOST = process.env.HOST;
 
 const readHtml = await fsPromise.readFile('index.html', 'utf-8', (err) => {
     if (err){
