@@ -13,7 +13,7 @@ input.addEventListener("keypress", (event) => {
 function farbe(){
     let kategorie = document.getElementById('wert').value;
     let art = document.getElementById('art').value;
-    let color = document.getElementById('wert');
+    let color = document.getElementById('wert').style;
     let green = 'rgba(0, 255, 0, 0.5)';
     let yellow = 'rgba(255, 255, 0, 0.5)';
     let red = 'rgba(255, 0, 0, 0.5)';
@@ -31,79 +31,79 @@ function farbe(){
     switch  (art){
         case 'Gesamtkeimzahl':
             if(kategorie === '<50000' || kategorie >= 1000 && kategorie < 50000){
-                color.style.backgroundColor = green;
+                color.backgroundColor = green;
             }
             else if(kategorie >= 50000 && kategorie < 5000000){
-                color.style.backgroundColor = yellow;
+                color.backgroundColor = yellow;
             }
             else if(kategorie >= 5000000 && kategorie <= 50000000){
-                color.style.backgroundColor = red;
+                color.backgroundColor = red;
             } else {
-                color.style.backgroundColor = lightgrey;
+                color.backgroundColor = lightgrey;
             }
             break;
 
         case 'E.coli':
             if(kategorie === '<100' || kategorie > 0 && kategorie < 100){
-                color.style.backgroundColor = green;
+                color.backgroundColor = green;
             }
             else if(kategorie >= 100 && kategorie < 500){
-                color.style.backgroundColor = yellow;
+                color.backgroundColor = yellow;
             }
             else if(kategorie >= 500 && kategorie <= 5000){
-                color.style.backgroundColor = red;
+                color.backgroundColor = red;
             } else {
-                color.style.backgroundColor = lightgrey;
+                color.backgroundColor = lightgrey;
             }
             break;
 
         case 'Salmonellen':
             if(kategorie === 'negativ'){
-                color.style.backgroundColor = green;
+                color.backgroundColor = green;
             }
             else if(kategorie === 'positiv'){
-                color.style.backgroundColor = red;
+                color.backgroundColor = red;
             } else {
-                color.style.backgroundColor = lightgrey;
+                color.backgroundColor = lightgrey;
             }
             break;
 
         case 'Listerien':
             if(kategorie === 'negativ'){
-                color.style.backgroundColor = green;
+                color.backgroundColor = green;
             }
             else if(kategorie === 'positiv'){
-                color.style.backgroundColor = red;
+                color.backgroundColor = red;
             } else {
-                color.style.backgroundColor = lightgrey;
+                color.backgroundColor = lightgrey;
             }
             break;
 
         case 'koagulase positive Staphylokokken':
             if(kategorie === '<100' || kategorie > 0 && kategorie < 100){
-                color.style.backgroundColor = green;
+                color.backgroundColor = green;
             }
             else if(kategorie >= 100 && kategorie < 500){
-                color.style.backgroundColor = yellow;
+                color.backgroundColor = yellow;
             }
             else if(kategorie >= 500 && kategorie <= 5000){
-                color.style.backgroundColor = red;
+                color.backgroundColor = red;
             } else {
-                color.style.backgroundColor = lightgrey;
+                color.backgroundColor = lightgrey;
             }
             break;
 
         case 'Enterobacteriaceae':
             if(kategorie === '<1000' || kategorie > 100 && kategorie < 1000){
-                color.style.backgroundColor = green;
+                color.backgroundColor = green;
             }
             else if(kategorie >= 1000 && kategorie < 5000){
-                color.style.backgroundColor = yellow;
+                color.backgroundColor = yellow;
             }
             else if(kategorie >= 5000 && kategorie <= 50000){
-                color.style.backgroundColor = red;
+                color.backgroundColor = red;
             } else {
-                color.style.backgroundColor = lightgrey;
+                color.backgroundColor = lightgrey;
             }
             break;
         default:
