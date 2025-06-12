@@ -1,6 +1,6 @@
 import http from 'node:http';
 import WebSocket, {WebSocketServer} from 'ws';
-import * as handlefile from './handlefile.js';
+import * as handle from './handle.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,19 +13,19 @@ const handleClient = (req, res) => {
     
     switch (req.url){
         case '/':
-            res.write(handlefile.readHtml);
+            res.write(handle.readHtml);
             break;
 
         case '/index.html':
-            res.write(handlefile.readHtml);
+            res.write(handle.readHtml);
             break;
 
         case '/style.css':
-            res.write(handlefile.readCss);
+            res.write(handle.readCss);
             break;
 
         case '/script.js':
-            res.write(handlefile.readScript);
+            res.write(handle.readScript);
             break;
 
         case req.url:
@@ -33,9 +33,9 @@ const handleClient = (req, res) => {
                 res.writeHead(404, {'Content-Type': 'text/html'});
                 res.write('<h1>Upps something went wrong!</h1>');
                 } else {
-                res.write(handlefile.readJson);
+                res.write(handle.readJson);
                 let add = req.url;
-                handlefile.handleJsonFile('json.json', add);
+                handle.handleJsonFile('json.json', add);
             }
             break;
 
