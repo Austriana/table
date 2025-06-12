@@ -1,4 +1,5 @@
-const PORT = 6969;
+
+const PORT = 3500;
 const HOST = 'localhost';
 
 const ws = new WebSocket(`ws://${HOST}:${PORT}`)

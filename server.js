@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 let PORT = process.env.PORT || 3500;
-let HOST = process.env.HOST || 'localhost';
+let HOST = process.env.HOST || "localhost";
 
 
 const handleClient = (req, res) => {
