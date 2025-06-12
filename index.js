@@ -1,7 +1,3 @@
-import * as module from "./module.js"
-
-module.bla = "indexbla";
-
 const PORT = 3500;
 const HOST = 'localhost';
 
