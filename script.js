@@ -1,7 +1,7 @@
 const PORT = 3500;
 const HOST = 'localhost';
 
-const ws = new WebSocket(`ws://${HOST}:${PORT}`)
+const ws = new WebSocket(`ws://${HOST}:${PORT}`);
 
 let input = document.getElementById("wert");
 input.addEventListener("keypress", (event) => {

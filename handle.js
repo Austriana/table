@@ -18,11 +18,11 @@ export const readCss = await fsPromise.readFile('style.css','utf-8', (err) => {
     }
 });
 
-export const readScript = await fsPromise.readFile('main.js','utf-8', (err) => {
+export const readScript = await fsPromise.readFile('script.js','utf-8', (err) => {
     if (err){
         console.log(err);
     } else {
-        console.log(`main.js read success`);
+        console.log(`script.js read success`);
     }
 });
 

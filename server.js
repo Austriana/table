@@ -13,27 +13,27 @@ const handleClient = (req, res) => {
     
     switch (req.url){
         case '/':
-            res.write(handle.readHtml);
+            res.end(handle.readHtml);
             break;
 
         case '/index.html':
-            res.write(handle.readHtml);
+            res.end(handle.readHtml);
             break;
 
         case '/style.css':
-            res.write(handle.readCss);
+            res.end(handle.readCss);
             break;
 
         case '/script.js':
-            res.write(handle.readScript);
+            res.end(handle.readScript);
             break;
 
         case req.url:
             if(req.url.slice(0, 5) !== '/json'){
                 res.writeHead(404, {'Content-Type': 'text/html'});
-                res.write('<h1>Upps something went wrong!</h1>');
+                res.end('<h1>Upps something went wrong!</h1>');
                 } else {
-                res.write(handle.readJson);
+                res.end(handle.readJson);
                 let add = req.url;
                 handle.handleJsonFile('json.json', add);
             }
@@ -41,9 +41,8 @@ const handleClient = (req, res) => {
 
         default:
             res.writeHead(404, {'Content-Type': 'text/html'});
-            res.write('<h1>Upps something went wrong!</h1>');
+            res.end('<h1>Upps something went wrong!</h1>');
     }
-    res.end();
 };
 
 
