@@ -9,12 +9,14 @@ table, th, td {
     text-align: center;
     padding: 5px;
 }
-.headerOne {
+.headerOne, #inputHeaderOne {
     background-color: rgb(128, 115, 115);
     font-size: 25px;
+    font-weight: bold;
 }
-.headerTwo {
+.headerTwo, #inputHeaderTwo {
     font-size: 20px;
+    font-weight: bold;
 }
 .gruen{
     background-color: rgba(0, 255, 0, 0.5);
