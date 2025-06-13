@@ -6,7 +6,7 @@ input.addEventListener("keypress", (event) => {
 });
 
 function farbe(){
-    let kategorie = document.getElementById('wert').value;
+    let kategorie = document.getElementById('wert').value.toLowerCase();
     let art = document.getElementById('art').value;
     let color = document.getElementById('wert').style;
     let green = 'rgba(0, 255, 0, 0.5)';
@@ -21,7 +21,6 @@ function farbe(){
 
     cellOne.innerHTML = art;
     cellTwo.innerHTML = kategorie;
-
 
     switch  (art){
         case 'Gesamtkeimzahl':
