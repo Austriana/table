@@ -15,7 +15,7 @@ function farbe(){
     let lightgrey = 'lightgrey';
 
     let inputTable = document.getElementById('inputList');
-    let row = inputTable.insertRow(0);
+    let row = inputTable.insertRow(1);
     let cellOne = row.insertCell(0);
     let cellTwo = row.insertCell(1);
     let cellThree = row.insertCell(2);
