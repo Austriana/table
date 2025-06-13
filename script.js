@@ -1,6 +1,3 @@
-const PORT = 3500;
-const HOST = 'localhost';
-
 let input = document.getElementById("wert");
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
