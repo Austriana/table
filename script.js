@@ -18,9 +18,20 @@ function farbe(){
     let row = inputTable.insertRow(0);
     let cellOne = row.insertCell(0);
     let cellTwo = row.insertCell(1);
+    let cellThree = row.insertCell(2);
 
-    cellOne.innerHTML = art;
-    cellTwo.innerHTML = kategorie;
+    const time = () => {
+        let timeElapsed = Date.now();
+        let time = new Date(timeElapsed);
+        let hour = time.getHours();
+        let min = time.getMinutes();
+        let sec = time.getSeconds();
+        return (`${hour}:${min}:${sec}`);
+    };
+
+    cellOne.innerHTML = time();
+    cellTwo.innerHTML = art;
+    cellThree.innerHTML = kategorie;
 
     switch  (art){
         case 'Gesamtkeimzahl':
