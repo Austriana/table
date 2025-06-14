@@ -21,6 +21,16 @@ function farbe(){
         let hour = time.getHours();
         let min = time.getMinutes();
         let sec = time.getSeconds();
+        if (hour < 10){
+            hour = `0${hour}`;
+        }
+        if (min < 10){
+            min = `0${min}`;
+        }
+        if (sec < 10){
+            sec = `0${sec}`;
+        }
+
         return (`${hour}:${min}:${sec}`);
     };
     let createInputTable = (art, kategorie, time) =>{
