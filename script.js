@@ -1,5 +1,3 @@
-import { hallo } from "./module";
-
 console.log(hallo);
 
 const input = document.getElementById("wert");
