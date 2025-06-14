@@ -1,5 +1,5 @@
 const input = document.getElementById("wert");
-
+let tableRowId = "1";
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     document.getElementById("farbe").click();
@@ -9,7 +9,6 @@ input.addEventListener("keypress", (event) => {
 function farbe(){
     let kategorie = document.getElementById('wert').value.toLowerCase();
     let art = document.getElementById('art').value;
-    let color = document.getElementById('wert').style;
     let green = 'rgba(0, 255, 0, 0.5)';
     let yellow = 'rgba(255, 255, 0, 0.5)';
     let red = 'rgba(255, 0, 0, 0.5)';
@@ -27,18 +26,21 @@ function farbe(){
     let createInputTable = (art, kategorie, time) =>{
         if (art !== "" && kategorie !== ""){
             let inputTable = document.getElementById('inputList');
-            let row = inputTable.insertRow(1);
+            let row = inputTable.insertRow(tableRowId);
+            row.id=tableRowId;
+            console.log (row.id);
             let cellOne = row.insertCell(0);
             let cellTwo = row.insertCell(1);
             let cellThree = row.insertCell(2);
             cellOne.innerHTML = time();
             cellTwo.innerHTML = art;
             cellThree.innerHTML = kategorie;
+            console.log (row.id);
         }
     };
 
     createInputTable(art, kategorie, time);
-
+    let color = document.getElementById(tableRowId).style;
     switch  (art){
         case 'Gesamtkeimzahl':
             if(kategorie === '<50000' || kategorie >= 1000 && kategorie < 50000){
@@ -131,6 +133,8 @@ function farbe(){
 
     };
     clearInputField();
+    tableRowId++
+
 };
 
 function myPlaceholder(){
