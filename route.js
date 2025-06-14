@@ -1,4 +1,4 @@
-import { readHtml, readCss, readScript, readModule }from './readFile.js';
+import { readHtml, readCss, readScript, readModule } from './readFile.js';
 
 export const route = (req, res) => {
     switch (req.url){
