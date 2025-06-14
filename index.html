@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <script type="module" defer src="script.js"></script>
     <title>Chemie Website</title>
 </head>
 <body>
@@ -109,7 +109,7 @@
         </table>
         <br>
         <br>
-        <input oninput="myPlaceholder()" list="arten" id="art" name="art" placeholder="Art" required />
+        <input list="arten" id="art" name="art" placeholder="Art" required />
         <datalist id="arten">
             <option value="Gesamtkeimzahl"></option>
             <option value="E.coli"></option>
@@ -119,7 +119,7 @@
             <option value="Listerien"></option>
         </datalist>
         <input list="werte" id="wert" name="wert" placeholder="Wert" required />
-        <button onclick="farbe()" type="button" id="farbe">Submit</button>
+        <button type="button" id="submit">Submit</button>
         <br><br>
         <table>
             <thead >

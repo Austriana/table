@@ -1,9 +1,20 @@
-const input = document.getElementById("wert");
 let tableRowId = "1";
-input.addEventListener("keypress", (event) => {
+
+let addPlaceholder = document.getElementById('art');
+addPlaceholder.addEventListener('input', () => {
+    myPlaceholder();
+});
+
+let submitInput = document.getElementById("wert");
+submitInput.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
-    document.getElementById("farbe").click();
+    document.getElementById("submit").click();
   }
+});
+
+let submitButton = document.getElementById('submit');
+submitButton.addEventListener('click', () => {
+    farbe();
 });
 
 function farbe(){
