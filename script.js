@@ -34,12 +34,10 @@ function farbe(){
             cellOne.innerHTML = time();
             cellTwo.innerHTML = art;
             cellThree.innerHTML = kategorie;
-
         }
-    }
+    };
+
     createInputTable(art, kategorie, time);
-
-
 
     switch  (art){
         case 'Gesamtkeimzahl':
