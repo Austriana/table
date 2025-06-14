@@ -28,14 +28,12 @@ function farbe(){
             let inputTable = document.getElementById('inputList');
             let row = inputTable.insertRow(tableRowId);
             row.id=tableRowId;
-            console.log (row.id);
             let cellOne = row.insertCell(0);
             let cellTwo = row.insertCell(1);
             let cellThree = row.insertCell(2);
             cellOne.innerHTML = time();
             cellTwo.innerHTML = art;
             cellThree.innerHTML = kategorie;
-            console.log (row.id);
         }
     };
 
