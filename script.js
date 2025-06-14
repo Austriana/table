@@ -1,5 +1,3 @@
-console.log(hallo);
-
 const input = document.getElementById("wert");
 let tableRowId = "1";
 input.addEventListener("keypress", (event) => {
