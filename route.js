@@ -22,6 +22,11 @@ export const route = (req, res) => {
             res.end(handle.readScript);
             break;
 
+        case '/module.js':
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
+            res.end(handle.readModule);
+            break;
+
         default:
             res.writeHead(404, {'Content-Type': 'text/html'});
             res.end('<h1>Upps something went wrong!</h1>');

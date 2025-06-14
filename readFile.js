@@ -23,9 +23,17 @@ const readScript = await fsPromise.readFile('script.js','utf-8', (err) => {
         console.log(`script.js read success`);
     }
 });
+const readModule = await fsPromise.readFile('module.js','utf-8', (err) => {
+    if (err){
+        console.log(err);
+    } else {
+        console.log(`module.js read success`);
+    }
+});
 
 export {
     readHtml,
     readCss,
-    readScript
+    readScript,
+    readModule
 };
