@@ -7,14 +7,17 @@ export const route = (req, res) => {
             break;
 
         case '/index.html':
+            res.writeHead(200, {'Content-Type': 'text/html'});
             res.end(handle.readHtml);
             break;
 
         case '/style.css':
+            res.writeHead(200, {'Content-Type': 'text/css'});
             res.end(handle.readCss);
             break;
 
         case '/script.js':
+            res.writeHead(200, {'Content-Type': 'text/javascript'});
             res.end(handle.readScript);
             break;
 
