@@ -3,6 +3,7 @@ import * as handle from './readFile.js';
 export const route = (req, res) => {
     switch (req.url){
         case '/':
+            res.writeHead(200, {'Content-Type': 'text/html'});
             res.end(handle.readHtml);
             break;
 
