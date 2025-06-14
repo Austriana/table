@@ -15,11 +15,6 @@ function farbe(){
     let red = 'rgba(255, 0, 0, 0.5)';
     let lightgrey = 'lightgrey';
 
-    let inputTable = document.getElementById('inputList');
-    let row = inputTable.insertRow(1);
-    let cellOne = row.insertCell(0);
-    let cellTwo = row.insertCell(1);
-    let cellThree = row.insertCell(2);
 
     const time = () => {
         let timeElapsed = Date.now();
@@ -29,10 +24,22 @@ function farbe(){
         let sec = time.getSeconds();
         return (`${hour}:${min}:${sec}`);
     };
+    let createInputTable = (art, kategorie, time) =>{
+        if (art !== "" && kategorie !== ""){
+            let inputTable = document.getElementById('inputList');
+            let row = inputTable.insertRow(1);
+            let cellOne = row.insertCell(0);
+            let cellTwo = row.insertCell(1);
+            let cellThree = row.insertCell(2);
+            cellOne.innerHTML = time();
+            cellTwo.innerHTML = art;
+            cellThree.innerHTML = kategorie;
 
-    cellOne.innerHTML = time();
-    cellTwo.innerHTML = art;
-    cellThree.innerHTML = kategorie;
+        }
+    }
+    createInputTable(art, kategorie, time);
+
+
 
     switch  (art){
         case 'Gesamtkeimzahl':
