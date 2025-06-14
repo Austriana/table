@@ -17,7 +17,7 @@ export const route = (req, res) => {
             break;
 
         case '/script.js':
-            res.writeHead(200, {'Content-Type': 'text/javascript'});
+            res.writeHead(200, {'Content-Type': 'application/javascript'});
             res.end(handle.readScript);
             break;
 
