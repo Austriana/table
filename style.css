@@ -1,7 +1,5 @@
 table{
     width: 100%;
-    min-width: 550px;
-    max-width: 1000px;
 }
 table, th, td {
     border: 1px solid black;

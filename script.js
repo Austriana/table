@@ -1,4 +1,5 @@
-let input = document.getElementById("wert");
+const input = document.getElementById("wert");
+
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     document.getElementById("farbe").click();
@@ -112,7 +113,19 @@ function farbe(){
             }
             break;
         default:
+            document.getElementById("art").value = "";
+            document.getElementById("wert").value = "Wert";
+
     }
+    let clearInputField = () => {
+        document.getElementById("art").value = "";
+        document.getElementById("wert").value = "";
+        let myInput = document.getElementsByName('wert')[0];
+        myInput.placeholder='Wert';
+
+
+    };
+    clearInputField();
 };
 
 function myPlaceholder(){
