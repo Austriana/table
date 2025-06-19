@@ -1,3 +1,6 @@
+*{
+    min-width: fit-content;
+}
 table{
     width: 100%;
 }
@@ -29,17 +32,16 @@ table, th, td {
     color: black;
 }
 #inputContainer{
-  display: inline-block;
   position: relative;
-  overflow: hidden;}
+}
 #submit{
   position: absolute;
   border: none;
   cursor:pointer;
   background-color: transparent;
-  top: 43%;
-  right: 0px;
   transform: translate(0, -50%);
+  top: 50%;
+  z-index: 1;
 }
 
 #submit:hover{
