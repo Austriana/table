@@ -1,6 +1,4 @@
-import { myPlaceholder, time, createInputTable, clearInputField, useColor} from "./module.js";
-
-let tableRowId = "1";
+import { myPlaceholder, time, createInputTable, clearInputField} from "./module.js";
 
 let addPlaceholder = document.getElementById('art');
 addPlaceholder.addEventListener('input', () => {
@@ -18,12 +16,15 @@ let submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', () => {
     main();
 });
-
+window.addEventListener('mouseup', (event) => {
+    if(event.target.id === 'delRowBtn'){
+        let delRowBtn = document.getElementById('delRowBtn');
+        delRowBtn.closest('tr').remove();
+    }
+})
 let main = () => {
     let kategorie = document.getElementById('wert').value.toLowerCase();
     let art = document.getElementById('art').value;
-    createInputTable(art, kategorie, time, tableRowId);
-    useColor(kategorie, art, tableRowId);
+    createInputTable(art, kategorie, time());
     clearInputField();
-    tableRowId++;
 };

@@ -28,3 +28,24 @@ table, th, td {
 ::placeholder{
     color: black;
 }
+#submit{
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+}
+#submit:hover{
+    scale: 1.5;
+}
+#delRowBtn{
+    background-color: transparent;
+    border: none;
+}
+
+#delRowBtn:hover{
+    scale: 2.0;
+    animation: mymove 5s infinite;
+
+}
+@keyframes mymove {
+  50% {transform: rotate(180deg);}
+}
