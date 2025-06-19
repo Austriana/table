@@ -43,7 +43,7 @@ const time = () => {
     } return (`${hour}:${min}:${sec}`);
 };
 
-let createInputTable = (art, kategorie, time) => {
+let createInputRow = (art, kategorie, time) => {
     if (art !== "" && kategorie !== ""){
         let inputList = document.getElementById("inputList");
         inputList.innerHTML +=`
@@ -52,9 +52,9 @@ let createInputTable = (art, kategorie, time) => {
             <td>${art}</td>
             <td>${kategorie}<button id=delRowBtn>❌</button</td>
         </tr>`
-    }   
     useColor(art, kategorie);
     tableRowId++;
+    }   
 };
 
 let clearInputField = () => {
@@ -145,7 +145,7 @@ window.addEventListener('mouseup', (event) => {
 export {
     myPlaceholder,
     time,
-    createInputTable,
+    createInputRow,
     clearInputField,
     useColor
 };

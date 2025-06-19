@@ -108,18 +108,19 @@
             </tfoot>
         </table>
         <br>
-        <br>
-        <input list="arten" id="art" name="art" placeholder="Art" required />
-        <datalist id="arten">
-            <option value="Gesamtkeimzahl"></option>
-            <option value="E.coli"></option>
-            <option value="Salmonellen"></option>
-            <option value="Enterobacteriaceae"></option>
-            <option value="koagulase positive Staphylokokken"></option>
-            <option value="Listerien"></option>
-        </datalist>
-        <input list="werte" id="wert" name="wert" placeholder="Wert" required />
-        <button type="button" id="submit">👉</button>
+        <div id="inputContainer">
+            <input list="arten" id="art" name="art" placeholder="Art" required />
+                <datalist id="arten">
+                    <option value="Gesamtkeimzahl"></option>
+                    <option value="E.coli"></option>
+                    <option value="Salmonellen"></option>
+                    <option value="Enterobacteriaceae"></option>
+                    <option value="koagulase positive Staphylokokken"></option>
+                    <option value="Listerien"></option>
+                </datalist>
+            <input  list="werte" id="wert" name="wert" placeholder="Wert" required>
+            <button type="submit" id="submit">👉</button>
+        </div>
         <br><br>
         <table>
             <thead >

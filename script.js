@@ -1,4 +1,4 @@
-import { myPlaceholder, time, createInputTable, clearInputField} from "./module.js";
+import { myPlaceholder, time, createInputRow, clearInputField} from "./module.js";
 
 let addPlaceholder = document.getElementById('art');
 addPlaceholder.addEventListener('input', () => {
@@ -25,6 +25,6 @@ window.addEventListener('mouseup', (event) => {
 let main = () => {
     let kategorie = document.getElementById('wert').value.toLowerCase();
     let art = document.getElementById('art').value;
-    createInputTable(art, kategorie, time());
+    createInputRow(art, kategorie, time());
     clearInputField();
 };
