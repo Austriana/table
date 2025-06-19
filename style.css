@@ -28,6 +28,9 @@ table, th, td {
 ::placeholder{
     color: black;
 }
+#inputContainer{
+    text-align: center;
+}
 input {
     border: none;
     border-bottom: 1px solid;
