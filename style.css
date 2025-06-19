@@ -28,11 +28,7 @@ table, th, td {
 ::placeholder{
     color: black;
 }
-#inputContainer{
-  position: relative;
-}
 input {
-    height: 20px;
     border: none;
     border-bottom: 1px solid;
 }
@@ -40,7 +36,6 @@ input {
   border: none;
   cursor:pointer;
   background-color: transparent;
-  right: 0px;
   z-index: 1;
 }
 
