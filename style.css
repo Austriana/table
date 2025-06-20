@@ -28,32 +28,34 @@ table, th, td {
 ::placeholder{
     color: black;
 }
-#inputContainer{
+#inputContainer, #inputCompanyContainer{
     text-align: center;
     padding: 0;
     margin: 0;
+}
+#inputContainer, #inputTable{
+    display: none;
 }
 input {
     border: none;
     border-bottom: 1px solid;
 }
-#submit{
-  border: none;
+#submit, #companyBtn{
   cursor:pointer;
   background-color: transparent;
   z-index: 1;
 }
-#submit:hover{
+#submit:hover, #companyBtn:hover{
     scale: 1.3;
 }
 #saveLog{
     text-decoration: none;
 }
-#delRowBtn{
+.delRowBtn{
     background-color: transparent;
     border: none;
 }
-#delRowBtn:hover{
+.delRowBtn:hover{
     scale: 2.0;
     animation: mymove 5s infinite;
 

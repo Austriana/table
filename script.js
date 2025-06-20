@@ -1,4 +1,4 @@
-import { myPlaceholder, time, createInputRow, clearInputField, saveLog} from "./module.js";
+import { myPlaceholder, time, createInputRow, clearInputField, saveLog, tableRowId} from "./module.js";
 
 let addPlaceholder = document.getElementById('art');
 addPlaceholder.addEventListener('input', () => {
@@ -17,8 +17,10 @@ submitButton.addEventListener('click', () => {
     main();
 });
 window.addEventListener('mouseup', (event) => {
-    if(event.target.id === 'delRowBtn'){
-        let delRowBtn = document.getElementById('delRowBtn');
+    const string = event.target.id;
+    const match = string.slice(0, 9);
+    if(match === 'delRowBtn'){
+        let delRowBtn = document.getElementById(string);
         const data = delRowBtn.closest('tr').innerHTML;
         saveLog(data);
         delRowBtn.closest('tr').remove();
@@ -30,3 +32,16 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
+let companyBtn = document.getElementById('companyBtn');
+companyBtn.addEventListener('click', () => {
+    let companyInput = document.getElementById('inputCompany').value;
+    if(companyInput !== ''){
+        let inputHeader = document.getElementById('inputHeaderOne');
+        let inputTable = document.getElementById('inputTable');
+        let inputContainer = document.getElementById('inputContainer');
+        inputTable.style.display = 'table';
+        inputContainer.style.display = 'block';
+        inputHeader.innerText = companyInput;
+        clearInputField();
+    }
+})

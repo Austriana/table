@@ -107,6 +107,11 @@
                 </tr>
             </tfoot>
         </table>
+        <br><br>
+        <p id="inputCompanyContainer">
+            <input type="text" id="inputCompany" placeholder="Firma" required>
+            <button id="companyBtn">enter</button>
+        </p>
         <br>
         <p id="inputContainer">
             <input list="arten" id="art" name="art" placeholder="Art" required />
@@ -121,15 +126,15 @@
                 <br>
             <input  list="werte" id="wert" name="wert" placeholder="Wert" required></input>
             <br><br>
-            <button type="submit" id="submit">  ✔👌 ready 🚓</button>
+            <button type="submit" id="submit">enter</button>
             <br><br>
             <a id="saveLog"></a>
         </p>
         <br>
-        <table>
+        <table id="inputTable">
             <thead >
-                <tr id="inputHeaderOne">
-                    <td colspan="4" >Input Liste</td>
+                <tr >
+                    <td id="inputHeaderOne" colspan="4"></td>
                 </tr>
             </thead>
             <tbody id="inputList">

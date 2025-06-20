@@ -53,7 +53,7 @@ let createInputRow = (art, kategorie, time) => {
         <tr id=row${tableRowId}>
             <td>${time}</td>
             <td>${art}</td>
-            <td>${kategorie}<button id=delRowBtn>❌</button
+            <td>${kategorie}<button class = delRowBtn id = delRowBtn${tableRowId}>❌</button
             </td>
         </tr>`
     useColor(art, kategorie);
@@ -64,6 +64,7 @@ let createInputRow = (art, kategorie, time) => {
 let clearInputField = () => {
     document.getElementById("art").value = "";
     document.getElementById("wert").value = "";
+    document.getElementById('inputCompany').value = '';
     const myInput = document.getElementsByName('wert')[0];
     myInput.placeholder='Wert';
 };
@@ -149,10 +150,11 @@ let saveLog = (data)=>{
     let url = URL.createObjectURL(file);
     let a = document.getElementById('saveLog');
     a.href=url;
-    a.textContent = '.gelöschte Daten';
+    a.textContent = 'gelöschte Daten';
     a.download = 'save.txt';
 }
-    export {
+export {
+    tableRowId,
     myPlaceholder,
     time,
     createInputRow,
