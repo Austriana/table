@@ -46,6 +46,9 @@ input {
 #submit:hover{
     scale: 1.3;
 }
+#saveLog{
+    text-decoration: none;
+}
 #delRowBtn{
     background-color: transparent;
     border: none;

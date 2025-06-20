@@ -1,4 +1,7 @@
+
 let tableRowId=1;
+let dataArray = [];
+
 
 let myPlaceholder = () => {
     let art = document.getElementById('art').value;
@@ -50,7 +53,8 @@ let createInputRow = (art, kategorie, time) => {
         <tr id=row${tableRowId}>
             <td>${time}</td>
             <td>${art}</td>
-            <td>${kategorie}<button id=delRowBtn>❌</button</td>
+            <td>${kategorie}<button id=delRowBtn>❌</button
+            </td>
         </tr>`
     useColor(art, kategorie);
     tableRowId++;
@@ -139,13 +143,20 @@ let useColor = (art, kategorie) => {
     }
 };
 
-window.addEventListener('mouseup', (event) => {
-});
-
-export {
+let saveLog = (data)=>{
+    dataArray.push(data);
+    let file = new File([dataArray], 'save.txt', {type : 'text/plain', lastModified: Date.now()});
+    let url = URL.createObjectURL(file);
+    let a = document.getElementById('saveLog');
+    a.href=url;
+    a.textContent = '➡gelöschte Daten⬅';
+    a.download = 'save.txt';
+}
+    export {
     myPlaceholder,
     time,
     createInputRow,
     clearInputField,
-    useColor
+    useColor,
+    saveLog
 };

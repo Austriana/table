@@ -1,4 +1,4 @@
-import { myPlaceholder, time, createInputRow, clearInputField} from "./module.js";
+import { myPlaceholder, time, createInputRow, clearInputField, saveLog} from "./module.js";
 
 let addPlaceholder = document.getElementById('art');
 addPlaceholder.addEventListener('input', () => {
@@ -19,6 +19,8 @@ submitButton.addEventListener('click', () => {
 window.addEventListener('mouseup', (event) => {
     if(event.target.id === 'delRowBtn'){
         let delRowBtn = document.getElementById('delRowBtn');
+        const data = delRowBtn.closest('tr').innerHTML;
+        saveLog(data);
         delRowBtn.closest('tr').remove();
     }
 })
