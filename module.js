@@ -149,7 +149,7 @@ let saveLog = (data)=>{
     let url = URL.createObjectURL(file);
     let a = document.getElementById('saveLog');
     a.href=url;
-    a.textContent = '➡gelöschte Daten⬅';
+    a.textContent = '.gelöschte Daten';
     a.download = 'save.txt';
 }
     export {
