@@ -14,7 +14,10 @@ submitInput.addEventListener("keypress", (event) => {
 
 let submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', () => {
+    let createJsonFile = document.getElementById('jsonLogStyle');
+    createJsonFile.style.display = 'block';
     main();
+
 });
 let createJsonFile = document.getElementById('createJsonFile');
 createJsonFile.addEventListener('click', () => {

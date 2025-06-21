@@ -33,7 +33,7 @@ table, th, td {
     padding: 0;
     margin: 0;
 }
-#inputContainer, #inputTable{
+#inputContainer, #inputTable, #jsonLogStyle{
     display: none;
 }
 input {
