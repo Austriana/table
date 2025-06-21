@@ -3,11 +3,26 @@ let jsonDataArray = [];
 let tableRowId=0;
 let dataArray = [];
 
-let formatTable = (art, kategorie, time) => {
+let formatColor = (color) => {
+    switch(color){
+        case 'rgba(0, 255, 0, 0.5)':
+            return 'green';
+        case 'rgba(255, 255, 0, 0.5)':
+            return 'yellow';
+        case 'rgba(255, 0, 0, 0.5)':
+            return 'red';
+        default:
+            return color;
+    }
+}
+
+let formatTable = (art, kategorie, time, color) => {
+    let myColor = formatColor(color);
     let data = {
             "art": art,
             "kategorie": kategorie,
-            "time": time
+            "time": time,
+            "color": myColor
     };
     jsonDataArray.push(data);
 }
@@ -62,11 +77,13 @@ let createInputRow = (art, kategorie, time) => {
         <tr id=row${tableRowId}>
             <td id=time${tableRowId}>${time}</td>
             <td id=art${tableRowId}>${art}</td>
-            <td id=kategorie${tableRowId}>${kategorie}<button type=button class=delRowBtn id=delRowBtn${tableRowId} value = ❌ >❌</button
-            </td>
+            <td id=kategorie${tableRowId}>${kategorie}</td>
+            <td><button class=saveRowBtn id=saveRowBtn${tableRowId}>✔</button></td>            
+            <td><button class=delRowBtn id=delRowBtn${tableRowId}>❌</button></td>
+
         </tr>`
-    useColor(art, kategorie);
-    formatTable(art, kategorie, time);
+    let color = useColor(art, kategorie);
+    // formatTable(art, kategorie, time, color);
     tableRowId++;
     }   
 };
@@ -80,9 +97,9 @@ let clearInputField = () => {
 };
 
 let useColor = (art, kategorie) => {
-    const green = 'rgba(0, 255, 0, 0.5)';
-    const yellow = 'rgba(255, 255, 0, 0.5)';
-    const red = 'rgba(255, 0, 0, 0.5)';
+    const green = 'rgba(0, 255, 0, 0.5)'||'green';
+    const yellow = 'rgba(255, 255, 0, 0.5)'||'yellow';
+    const red = 'rgba(255, 0, 0, 0.5)'||'red';
     const lightgrey = 'lightgrey';
     const color = document.getElementById(`row${tableRowId}`).style;
 
@@ -152,31 +169,34 @@ let useColor = (art, kategorie) => {
             document.getElementById("art").value = "";
             document.getElementById("wert").value = "Wert";
     }
+    return color.backgroundColor;
 };
 
 let deleteLog = (data)=>{
     dataArray.push(data);
     let dataString = JSON.stringify(dataArray, null, 2);
-    let file = new File([dataString], 'save.txt', {type : 'text/plain', lastModified: Date.now()});
+    let file = new File([dataString], 'deleteLog.json', {type : 'text/json', lastModified: Date.now()});
     let url = URL.createObjectURL(file);
     let a = document.getElementById('deleteLog');
     a.href=url;
-    a.textContent = 'gelöschte Daten';
-    a.download = 'delete.txt';
+    a.textContent = 'gelöschte Json Daten';
+    a.download = 'deleteLog.json';
 }
-let jsonLog = ()=>{
+let jsonLog = (data)=>{
+    jsonDataArray.push(data)
     let dataString = JSON.stringify(jsonDataArray, null, 2);
     let file = new File([dataString], 'jsonLog.json', {type : 'text/json', lastModified: Date.now()});
     let url = URL.createObjectURL(file);
     let a = document.getElementById('jsonLog');
     a.href=url;
-    a.textContent = 'Save Data to JsonFile';
+    a.textContent = 'gespeicherte Json Daten';
     a.download = 'jsonLog.json';
 }
 
 export {
     tableRowId,
     jsonDataArray,
+    formatColor,
     myPlaceholder,
     time,
     createInputRow,

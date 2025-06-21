@@ -1,4 +1,4 @@
-import { myPlaceholder, time, createInputRow, clearInputField, deleteLog, jsonDataArray, jsonLog} from "./module.js";
+import { myPlaceholder, time, createInputRow, clearInputField, deleteLog, jsonDataArray, jsonLog, formatColor} from "./module.js";
 
 let addPlaceholder = document.getElementById('art');
 addPlaceholder.addEventListener('input', () => {
@@ -19,24 +19,47 @@ submitButton.addEventListener('click', () => {
     main();
 
 });
-let createJsonFile = document.getElementById('createJsonFile');
-createJsonFile.addEventListener('click', () => {
-    jsonLog();
+window.addEventListener('click', (event) => {
+    const string = event.target.id;
+    const match = string.slice(0, 10);
+    if(match === 'saveRowBtn'){
+        let saveRowBtn = document.getElementById(string);
+        let num = string.slice(10);
+        let art = document.getElementById(`art${num}`);
+        let kategorie = document.getElementById(`kategorie${num}`).innerText;
+        let time = document.getElementById(`time${num}`).innerText;
+        let color = document.getElementById(`row${num}`).style;
+        let myColor = formatColor(color.backgroundColor);
+        
+        let data = {
+            "art": art.innerText,
+            "kategorie": kategorie,
+            "time": time,
+            "color": myColor
+    };
+
+        jsonLog(data);
+        saveRowBtn.closest('tr').remove();
+    }
 })
+
 window.addEventListener('click', (event) => {
     const string = event.target.id;
     const match = string.slice(0, 9);
     if(match === 'delRowBtn'){
         let delRowBtn = document.getElementById(string);
         let num = string.slice(9);
-        let art = document.getElementById(`art${num}`).innerText;
+        let art = document.getElementById(`art${num}`);
         let kategorie = document.getElementById(`kategorie${num}`).innerText;
         let time = document.getElementById(`time${num}`).innerText;
+        let color = document.getElementById(`row${num}`).style;
+        let myColor = formatColor(color.backgroundColor);
         
         let data = {
-            "art": art,
+            "art": art.innerText,
             "kategorie": kategorie,
-            "time": time
+            "time": time,
+            "color": myColor
     };
 
         deleteLog(data);
