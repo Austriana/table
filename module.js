@@ -1,7 +1,16 @@
 
 let tableRowId=1;
 let dataArray = [];
+let jsonDataArray = [];
 
+let formatTable = (art, kategorie, time) => {
+    let data = {
+            "art": art,
+            "kategorie": kategorie,
+            "time": time
+    };
+    jsonDataArray.push(data);
+}
 
 let myPlaceholder = () => {
     let art = document.getElementById('art').value;
@@ -51,12 +60,13 @@ let createInputRow = (art, kategorie, time) => {
         let inputList = document.getElementById("inputList");
         inputList.innerHTML +=`
         <tr id=row${tableRowId}>
-            <td>${time}</td>
-            <td>${art}</td>
-            <td>${kategorie}<button class = delRowBtn id = delRowBtn${tableRowId}>❌</button
+            <td id=time>${time}</td>
+            <td id=art>${art}</td>
+            <td id=kategorie>${kategorie}<button class=delRowBtn id=delRowBtn${tableRowId}>❌</button
             </td>
         </tr>`
     useColor(art, kategorie);
+    formatTable(art, kategorie, time);
     tableRowId++;
     }   
 };
@@ -144,21 +154,33 @@ let useColor = (art, kategorie) => {
     }
 };
 
-let saveLog = (data)=>{
+let deleteLog = (data)=>{
     dataArray.push(data);
     let file = new File([dataArray], 'save.txt', {type : 'text/plain', lastModified: Date.now()});
     let url = URL.createObjectURL(file);
-    let a = document.getElementById('saveLog');
+    let a = document.getElementById('deleteLog');
     a.href=url;
     a.textContent = 'gelöschte Daten';
-    a.download = 'save.txt';
+    a.download = 'delete.txt';
 }
+let jsonLog = ()=>{
+    let dataString = JSON.stringify(jsonDataArray, null, 2);
+    let file = new File([dataString], 'jsonLog.json', {type : 'text/json', lastModified: Date.now()});
+    let url = URL.createObjectURL(file);
+    let a = document.getElementById('jsonLog');
+    a.href=url;
+    a.textContent = 'Save Data to JsonFile';
+    a.download = 'jsonLog.json';
+}
+
 export {
     tableRowId,
+    jsonDataArray,
     myPlaceholder,
     time,
     createInputRow,
     clearInputField,
     useColor,
-    saveLog
+    deleteLog,
+    jsonLog
 };

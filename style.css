@@ -28,7 +28,7 @@ table, th, td {
 ::placeholder{
     color: black;
 }
-#inputContainer, #inputCompanyContainer{
+#inputContainer, #inputCompanyContainer, #jsonLogStyle{
     text-align: center;
     padding: 0;
     margin: 0;
@@ -48,7 +48,7 @@ input {
 #submit:hover, #companyBtn:hover{
     scale: 1.3;
 }
-#saveLog{
+#deleteLog{
     text-decoration: none;
 }
 .delRowBtn{
