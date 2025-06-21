@@ -1,7 +1,7 @@
 
-let tableRowId=1;
-let dataArray = [];
 let jsonDataArray = [];
+let tableRowId=0;
+let dataArray = [];
 
 let formatTable = (art, kategorie, time) => {
     let data = {
@@ -60,9 +60,9 @@ let createInputRow = (art, kategorie, time) => {
         let inputList = document.getElementById("inputList");
         inputList.innerHTML +=`
         <tr id=row${tableRowId}>
-            <td id=time>${time}</td>
-            <td id=art>${art}</td>
-            <td id=kategorie>${kategorie}<button class=delRowBtn id=delRowBtn${tableRowId}>❌</button
+            <td id=time${tableRowId}>${time}</td>
+            <td id=art${tableRowId}>${art}</td>
+            <td id=kategorie${tableRowId}>${kategorie}<button type=button class=delRowBtn id=delRowBtn${tableRowId} value = ❌ >❌</button
             </td>
         </tr>`
     useColor(art, kategorie);
@@ -156,7 +156,8 @@ let useColor = (art, kategorie) => {
 
 let deleteLog = (data)=>{
     dataArray.push(data);
-    let file = new File([dataArray], 'save.txt', {type : 'text/plain', lastModified: Date.now()});
+    let dataString = JSON.stringify(dataArray, null, 2);
+    let file = new File([dataString], 'save.txt', {type : 'text/plain', lastModified: Date.now()});
     let url = URL.createObjectURL(file);
     let a = document.getElementById('deleteLog');
     a.href=url;

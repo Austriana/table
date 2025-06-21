@@ -28,7 +28,17 @@ window.addEventListener('click', (event) => {
     const match = string.slice(0, 9);
     if(match === 'delRowBtn'){
         let delRowBtn = document.getElementById(string);
-        const data = delRowBtn.closest('tr').innerHTML;
+        let num = string.slice(9);
+        let art = document.getElementById(`art${num}`).innerText;
+        let kategorie = document.getElementById(`kategorie${num}`).innerText;
+        let time = document.getElementById(`time${num}`).innerText;
+        
+        let data = {
+            "art": art,
+            "kategorie": kategorie,
+            "time": time
+    };
+
         deleteLog(data);
         delRowBtn.closest('tr').remove();
     }
@@ -39,6 +49,13 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
+let companyInput = document.getElementById("inputCompany");
+companyInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    document.getElementById("companyBtn").click();
+  }
+});
+
 let companyBtn = document.getElementById('companyBtn');
 companyBtn.addEventListener('click', () => {
     let companyInput = document.getElementById('inputCompany').value;
