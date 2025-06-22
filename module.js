@@ -1,7 +1,11 @@
-
+// global Variables
+// store jsonData
 let jsonDataArray = [];
-let tableRowId=0;
+// store deleteData
 let dataArray = [];
+// store counter for ID
+let tableRowId = 0;
+
 
 let formatColor = (color) => {
     switch(color){
@@ -14,18 +18,7 @@ let formatColor = (color) => {
         default:
             return color;
     }
-}
-
-let formatTable = (art, kategorie, time, color) => {
-    let myColor = formatColor(color);
-    let data = {
-            "art": art,
-            "kategorie": kategorie,
-            "time": time,
-            "color": myColor
-    };
-    jsonDataArray.push(data);
-}
+};
 
 let myPlaceholder = () => {
     let art = document.getElementById('art').value;
@@ -80,18 +73,17 @@ let createInputRow = (art, kategorie, time) => {
             <td id=kategorie${tableRowId}>${kategorie}</td>
             <td><button class=saveRowBtn id=saveRowBtn${tableRowId}>✔</button></td>            
             <td><button class=delRowBtn id=delRowBtn${tableRowId}>❌</button></td>
+        </tr>`;
 
-        </tr>`
-    let color = useColor(art, kategorie);
-    // formatTable(art, kategorie, time, color);
-    tableRowId++;
+        useColor(art, kategorie);
+        tableRowId++;
     }   
 };
 
 let clearInputField = () => {
     document.getElementById("art").value = "";
     document.getElementById("wert").value = "";
-    document.getElementById('inputCompany').value = '';
+    document.getElementById('inputCompany').value = "";
     const myInput = document.getElementsByName('wert')[0];
     myInput.placeholder='Wert';
 };
@@ -181,7 +173,8 @@ let deleteLog = (data)=>{
     a.href=url;
     a.textContent = 'gelöschte Json Daten';
     a.download = 'deleteLog.json';
-}
+};
+
 let jsonLog = (data)=>{
     jsonDataArray.push(data)
     let dataString = JSON.stringify(jsonDataArray, null, 2);
@@ -191,7 +184,56 @@ let jsonLog = (data)=>{
     a.href=url;
     a.textContent = 'gespeicherte Json Daten';
     a.download = 'jsonLog.json';
-}
+};
+
+let handleJsonLog = (event) => {
+    const string = event.target.id;
+    const match = string.slice(0, 10);
+    if(match === 'saveRowBtn'){
+        let saveRowBtn = document.getElementById(string);
+        let num = string.slice(10);
+        let art = document.getElementById(`art${num}`);
+        let kategorie = document.getElementById(`kategorie${num}`).innerText;
+        let time = document.getElementById(`time${num}`).innerText;
+        let color = document.getElementById(`row${num}`).style;
+        let myColor = formatColor(color.backgroundColor);
+        
+        let data = {
+            "art": art.innerText,
+            "kategorie": kategorie,
+            "time": time,
+            "color": myColor
+    };
+
+        jsonLog(data);
+        saveRowBtn.closest('tr').remove();
+    }
+};
+
+let handleDeleteLog = (event) => {
+    const string = event.target.id;
+    const match = string.slice(0, 9);
+    if(match === 'delRowBtn'){
+        let delRowBtn = document.getElementById(string);
+        let num = string.slice(9);
+        let art = document.getElementById(`art${num}`);
+        let kategorie = document.getElementById(`kategorie${num}`).innerText;
+        let time = document.getElementById(`time${num}`).innerText;
+        let color = document.getElementById(`row${num}`).style;
+        let myColor = formatColor(color.backgroundColor);
+        
+        let data = {
+            "art": art.innerText,
+            "kategorie": kategorie,
+            "time": time,
+            "color": myColor
+    };
+
+        deleteLog(data);
+        delRowBtn.closest('tr').remove();
+    }
+};
+
 
 export {
     tableRowId,
@@ -203,5 +245,7 @@ export {
     clearInputField,
     useColor,
     deleteLog,
-    jsonLog
+    jsonLog, 
+    handleJsonLog,
+    handleDeleteLog
 };
