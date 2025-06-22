@@ -7,7 +7,7 @@ table, th, td {
     text-align: center;
     padding: 5px;
 }
-.headerOne, #client, .infoHeader {
+.headerOne, .infoHeader {
     background-color: rgb(128, 115, 115);
     font-size: 25px;
     font-weight: bold;
