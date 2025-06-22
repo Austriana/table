@@ -19,7 +19,7 @@ let infoHeader = () => {
     jsonDataArray.unshift(data);
     dataArray.unshift(data);
     inputCompanyContainer.style.display = 'none';
-}
+};
 
 let formatColor = (color) => {
     switch(color){
@@ -93,6 +93,7 @@ let createInputRow = (art, kategorie, time) => {
         tableRowId++;
     }   
 };
+
 let companyDataInput = () => {
     let inputClient = document.getElementById('inputClient').value;
     let inputLaboratory = document.getElementById('inputLaboratory').value;
@@ -109,11 +110,14 @@ let companyDataInput = () => {
         clearInputField();
         infoHeader();
     }    
-}
+};
 
 let clearInputField = () => {
     document.getElementById("art").value = "";
     document.getElementById("wert").value = "";
+    document.getElementById("inputClient").value = "";
+    document.getElementById("inputLaboratory").value = "";
+    
     const myInput = document.getElementsByName('wert')[0];
     myInput.placeholder='Wert';
 };

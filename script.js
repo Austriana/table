@@ -34,21 +34,20 @@ inputLaboratory.addEventListener("keypress", (event) => {
   }
 });
 
-
 let inputCompanyContainerBtn = document.getElementById('inputCompanyContainerBtn');
 inputCompanyContainerBtn.addEventListener('click', () => {
     companyDataInput();
-})
+});
 
 // Listener for handleJsonLog()
 window.addEventListener('click', (event) => {
     handleJsonLog(event);
-})
+});
 
 // Listener for handleDeleteLog()
 window.addEventListener('click', (event) => {
     handleDeleteLog(event);
-})
+});
 
 let main = () => {
     let kategorie = document.getElementById('wert').value.toLowerCase();
