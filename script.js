@@ -20,17 +20,24 @@ submitButton.addEventListener('click', () => {
 
 });
 
-let companyInput = document.getElementById("inputCompany");
-companyInput.addEventListener("keypress", (event) => {
+let inputClient = document.getElementById("inputClient");
+inputClient.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
-    document.getElementById("companyBtn").click();
+    document.getElementById("inputCompanyContainerBtn").click();
   }
 });
 
-let companyBtn = document.getElementById('companyBtn');
-companyBtn.addEventListener('click', () => {
+let inputLaboratory = document.getElementById("inputLaboratory");
+inputLaboratory.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    document.getElementById("inputCompanyContainerBtn").click();
+  }
+});
+
+
+let inputCompanyContainerBtn = document.getElementById('inputCompanyContainerBtn');
+inputCompanyContainerBtn.addEventListener('click', () => {
     companyDataInput();
-    infoHeader();
 })
 
 // Listener for handleJsonLog()

@@ -108,12 +108,12 @@
             </tfoot>
         </table>
         <br><br>
-        <p id="inputCompanyContainer">
-            <input type="text" id="inputCompany" placeholder="Auftraggeber" required>
-            <button id="companyBtn">enter</button>
+        <p id="inputCompanyContainer"><br>
+            <input type="text" id="inputClient" placeholder="Auftraggeber" required><br>
+            <input type="text" id="inputLaboratory" placeholder="Labor" required><br><br>           
+            <button id="inputCompanyContainerBtn">enter</button>
         </p>
-        <br>
-        <p id="inputContainer">
+        <p id="inputContainer"><br>
             <input list="arten" id="art" name="art" placeholder="Art" required />
                 <datalist id="arten">
                     <option value="Gesamtkeimzahl"></option>
@@ -133,8 +133,13 @@
         <br>
         <table id="inputTable">
             <thead >
-                <tr >
-                    <td id="inputHeaderOne" colspan="5"></td>
+                <tr class="infoHeader">
+                    <td colspan="1">Auftraggeber:</td>                    
+                    <td id="client" colspan="4"></td>
+                </tr>
+                <tr class="infoHeader">
+                    <td colspan="1">Labor:</td>                    
+                    <td id="laboratory" colspan="4"></td>                    
                 </tr>
             </thead>
             <tbody id="inputList">

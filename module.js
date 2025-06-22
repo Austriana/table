@@ -7,13 +7,17 @@ let dataArray = [];
 let tableRowId = 0;
 
 let infoHeader = () => {
-    let client = document.getElementById('inputHeaderOne').innerText;
+    let client = document.getElementById('client').innerText;
+    let laboratory = document.getElementById('laboratory').innerText;
+
     let inputCompanyContainer = document.getElementById('inputCompanyContainer');
     
     let data = {
-        "client": client
+        "client": client,
+        "laboratory": laboratory
     }
     jsonDataArray.unshift(data);
+    dataArray.unshift(data);
     inputCompanyContainer.style.display = 'none';
 }
 
@@ -90,23 +94,27 @@ let createInputRow = (art, kategorie, time) => {
     }   
 };
 let companyDataInput = () => {
-    let companyInput = document.getElementById('inputCompany').value;
-    if(companyInput !== ''){
-        let inputHeader = document.getElementById('inputHeaderOne');
+    let inputClient = document.getElementById('inputClient').value;
+    let inputLaboratory = document.getElementById('inputLaboratory').value;
+
+    if(inputClient !== '' && inputLaboratory !== ''){
+        let client = document.getElementById('client');
         let inputTable = document.getElementById('inputTable');
         let inputContainer = document.getElementById('inputContainer');
+        let laboratory = document.getElementById('laboratory');
         inputTable.style.display = 'table';
         inputContainer.style.display = 'block';
-        inputHeader.innerText = companyInput;
+        client.innerText = inputClient;
+        laboratory.innerText = inputLaboratory
         clearInputField();
-}    
+        infoHeader();
+    }    
 }
 
 
 let clearInputField = () => {
     document.getElementById("art").value = "";
     document.getElementById("wert").value = "";
-    document.getElementById('inputCompany').value = "";
     const myInput = document.getElementsByName('wert')[0];
     myInput.placeholder='Wert';
 };
