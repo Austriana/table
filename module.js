@@ -236,8 +236,9 @@ let handleDeleteLog = (event) => {
 
 
 export {
-    tableRowId,
     jsonDataArray,
+    dataArray,
+    tableRowId,
     formatColor,
     myPlaceholder,
     time,
