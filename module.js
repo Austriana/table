@@ -111,7 +111,6 @@ let companyDataInput = () => {
     }    
 }
 
-
 let clearInputField = () => {
     document.getElementById("art").value = "";
     document.getElementById("wert").value = "";
