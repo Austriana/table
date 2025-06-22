@@ -6,6 +6,16 @@ let dataArray = [];
 // store counter for ID
 let tableRowId = 0;
 
+let infoHeader = () => {
+    let client = document.getElementById('inputHeaderOne').innerText;
+    let inputCompanyContainer = document.getElementById('inputCompanyContainer');
+    
+    let data = {
+        "client": client
+    }
+    jsonDataArray.unshift(data);
+    inputCompanyContainer.style.display = 'none';
+}
 
 let formatColor = (color) => {
     switch(color){
@@ -79,6 +89,19 @@ let createInputRow = (art, kategorie, time) => {
         tableRowId++;
     }   
 };
+let companyDataInput = () => {
+    let companyInput = document.getElementById('inputCompany').value;
+    if(companyInput !== ''){
+        let inputHeader = document.getElementById('inputHeaderOne');
+        let inputTable = document.getElementById('inputTable');
+        let inputContainer = document.getElementById('inputContainer');
+        inputTable.style.display = 'table';
+        inputContainer.style.display = 'block';
+        inputHeader.innerText = companyInput;
+        clearInputField();
+}    
+}
+
 
 let clearInputField = () => {
     document.getElementById("art").value = "";
@@ -200,7 +223,7 @@ let handleJsonLog = (event) => {
         
         let data = {
             "art": art.innerText,
-            "kategorie": kategorie,
+            "kategory": kategorie,
             "time": time,
             "color": myColor
     };
@@ -224,7 +247,7 @@ let handleDeleteLog = (event) => {
         
         let data = {
             "art": art.innerText,
-            "kategorie": kategorie,
+            "kategory": kategorie,
             "time": time,
             "color": myColor
     };
@@ -239,10 +262,12 @@ export {
     jsonDataArray,
     dataArray,
     tableRowId,
+    infoHeader,
     formatColor,
     myPlaceholder,
     time,
     createInputRow,
+    companyDataInput,
     clearInputField,
     useColor,
     deleteLog,

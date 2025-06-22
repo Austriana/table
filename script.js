@@ -1,4 +1,4 @@
-import { myPlaceholder, time, createInputRow, clearInputField, handleJsonLog, handleDeleteLog} from "./module.js";
+import { myPlaceholder, time, createInputRow, companyDataInput , infoHeader, clearInputField, handleJsonLog, handleDeleteLog} from "./module.js";
 
 let addPlaceholder = document.getElementById('art');
 addPlaceholder.addEventListener('input', () => {
@@ -29,16 +29,8 @@ companyInput.addEventListener("keypress", (event) => {
 
 let companyBtn = document.getElementById('companyBtn');
 companyBtn.addEventListener('click', () => {
-    let companyInput = document.getElementById('inputCompany').value;
-    if(companyInput !== ''){
-        let inputHeader = document.getElementById('inputHeaderOne');
-        let inputTable = document.getElementById('inputTable');
-        let inputContainer = document.getElementById('inputContainer');
-        inputTable.style.display = 'table';
-        inputContainer.style.display = 'block';
-        inputHeader.innerText = companyInput;
-        clearInputField();
-    }
+    companyDataInput();
+    infoHeader();
 })
 
 // Listener for handleJsonLog()
