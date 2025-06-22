@@ -124,8 +124,15 @@
                     <option value="Listerien"></option>
                 </datalist></input>
                 <br>
-            <input  list="werte" id="wert" name="wert" placeholder="Wert" required></input>
-            <br><br>
+            <input  list="werte" id="wert" name="wert" placeholder="Wert" required>
+            <datalist id="werte">
+                    <option value="<100"></option>
+                    <option value="<1000"></option>
+                    <option value="<50000"></option>
+                    <option value="negativ"></option>
+                    <option value="positiv"></option>
+                </datalist></input>
+        <br><br>
             <button type="submit" id="submit">enter</button>
             <br><br>
             <a id="deleteLog"></a>         
