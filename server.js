@@ -10,7 +10,7 @@ const server = http.createServer(route);
 server.listen(PORT, () => {
     console.log(`\nServer runs on:\thttp://${PORT}`);
 });
-server.on('connection', () => {
+server.on('data', () => {
     console.log('new client')
 })
 server.on('close', () => {
