@@ -1,34 +1,37 @@
 import { readHtml, readCss, readScript, readModule } from './readFile.js';
 
-export const route = (req, res) => {
-    switch (req.url){
+export const route = (request, response) => {
+
+    handle_Data(request, response);
+
+    switch (request.url){
         case '/':
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end(readHtml);
+            response.writeHead(200, {'Content-Type': 'text/html'});
+            response.end(readHtml);
             break;
 
         case '/index.html':
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end(readHtml);
+            response.writeHead(200, {'Content-Type': 'text/html'});
+            response.end(readHtml);
             break;
 
         case '/style.css':
-            res.writeHead(200, {'Content-Type': 'text/css'});
-            res.end(readCss);
+            response.writeHead(200, {'Content-Type': 'text/css'});
+            response.end(readCss);
             break;
 
         case '/script.js':
-            res.writeHead(200, {'Content-Type': 'application/javascript'});
-            res.end(readScript);
+            response.writeHead(200, {'Content-Type': 'application/javascript'});
+            response.end(readScript);
             break;
 
         case '/module.js':
-            res.writeHead(200, {'Content-Type': 'application/javascript'});
-            res.end(readModule);
+            response.writeHead(200, {'Content-Type': 'application/javascript'});
+            response.end(readModule);
             break;
 
         default:
-            res.writeHead(404, {'Content-Type': 'text/html'});
-            res.end('<h1>Upps something went wrong!</h1>');
+            response.writeHead(404, {'Content-Type': 'text/html'});
+            response.end('<h1>Upps something went wrong!</h1>');
     }
 };
