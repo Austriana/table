@@ -55,3 +55,19 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
+
+let data = {
+  token: 'ef61bc',
+};
+let send = document.getElementById('send');
+send.addEventListener('click', () => {
+  functionName();
+})
+
+function functionName(){     
+    var http = new XMLHttpRequest();
+    var url = 'http://localhost:3500';
+    http.open("POST", url);
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send(JSON.stringify(data));
+}
