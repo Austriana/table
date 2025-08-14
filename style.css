@@ -7,6 +7,10 @@ table, th, td {
     text-align: center;
     padding: 5px;
 }
+input {
+    border: none;
+    border-bottom: 1px solid;
+}
 .headerOne, .infoHeader {
     background-color: rgb(128, 115, 115);
     font-size: 25px;
@@ -35,10 +39,6 @@ table, th, td {
 }
 #inputContainer, #inputTable, #jsonLogStyle{
     display: none;
-}
-input {
-    border: none;
-    border-bottom: 1px solid;
 }
 #submit, #inputCompanyContainerBtn{
   cursor:pointer;
