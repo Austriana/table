@@ -8,5 +8,5 @@ let PORT = 3500;
 const server = http.createServer(route);
 
 server.listen(PORT () => {
-    // console.log(`\nServer runs on:\thttp://${HOST}:${PORT}`);
+    console.log(`\nServer runs on:\thttp://${PORT}`);
 });
