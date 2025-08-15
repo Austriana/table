@@ -2,8 +2,8 @@ import http from 'node:http';
 import { WebSocketServer, WebSocket } from 'ws';
 import {route} from './route.js'
 
-const PORT = 3500;
-const HOST = "localhost";
+const PORT = process.env.PORT||3500;
+const HOST = process.env.HOST||"localhost";
 
 const server = http.createServer(route);
 // ws ------------------------------------------------------------------

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Austriana/table#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "ws": "^8.18.3"
   }
 }
