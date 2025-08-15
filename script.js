@@ -55,8 +55,8 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
-
-let ws = new WebSocket('ws://localhost:3500');
+let ws = new WebSocket("ws://" + location.host); // Assuming ws:// is appropriate
+// let ws = new WebSocket('ws://localhost:3500');
 
 let toServerMsg = {
   zahl1: 1,
@@ -70,6 +70,7 @@ let toServerMsg = {
 
 let send = document.getElementById('send');
 send.addEventListener('click', () => {
+  console.log(location.host)
   ws.send(JSON.stringify(toServerMsg));
 });
 
