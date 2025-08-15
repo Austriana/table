@@ -55,7 +55,7 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
-let url = "wss://table-wozt.onrender.com";
+let url = "wss://" + location.host;
 let ws = new WebSocket(url); // Assuming ws:// is appropriate
 // let ws = new WebSocket('ws://localhost:3500');
 
