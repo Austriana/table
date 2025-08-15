@@ -55,7 +55,7 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
-let ws = new WebSocket("ws://" + location.host); // Assuming ws:// is appropriate
+let ws = new WebSocket("wss://" + location.host); // Assuming ws:// is appropriate
 // let ws = new WebSocket('ws://localhost:3500');
 
 let toServerMsg = {
