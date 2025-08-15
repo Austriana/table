@@ -56,18 +56,24 @@ let main = () => {
     clearInputField();
 };
 
-let data = {
-  token: 'ef61bc',
+let ws = new WebSocket('ws://localhost:3500');
+
+let toServerMsg = {
+  zahl1: 1,
+  zahl2: 2,
+  zahl3: 3,
+  zahl4: 4,
+  zahl5: 5,
+  zahl6: 6,
+  zahl7: 7,
 };
+
 let send = document.getElementById('send');
 send.addEventListener('click', () => {
-  functionName();
-})
+  ws.send(JSON.stringify(toServerMsg));
+});
 
-function functionName(){     
-    var http = new XMLHttpRequest();
-    var url = 'http://localhost:3500';
-    http.open("POST", url);
-    http.setRequestHeader("Content-Type", "application/json");
-    http.send(JSON.stringify(data));
-}
+ws.addEventListener('message', (msg)=>{
+  let fromServerMsg = msg.data;
+  console.log(JSON.parse(fromServerMsg))
+});

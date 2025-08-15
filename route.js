@@ -1,12 +1,5 @@
 import { readHtml, readCss, readScript, readModule } from './readFile.js';
-
 export const route = (request, response) => {
-
-     request.on('data', (msg) => {
-        let obj = JSON.parse(msg);
-        console.log(obj);
-     })
-
     switch (request.url){
         case '/':
             response.writeHead(200, {'Content-Type': 'text/html'});
