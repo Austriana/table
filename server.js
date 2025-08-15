@@ -3,7 +3,6 @@ import { WebSocketServer, WebSocket } from 'ws';
 import {route} from './route.js'
 
 const PORT = process.env.PORT||80;
-const HOST = process.env.HOST||"localhost";
 
 const server = http.createServer(route);
 // ws ------------------------------------------------------------------
@@ -33,5 +32,5 @@ wss.on('connection', (ws, req) => {
 });
 // --------------------------------------------------------------------
 server.listen(PORT, () => {
-    console.log(`\nServer runs on:\thttp://${HOST}:${PORT}`);
+    console.log(`\nServer runs on:\thttp://localhost:${PORT}`);
 });
