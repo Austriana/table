@@ -55,7 +55,8 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
-let ws = new WebSocket("wss://" + location.host); // Assuming ws:// is appropriate
+let url = "ws://" + location.host + ":80";
+let ws = new WebSocket(url); // Assuming ws:// is appropriate
 // let ws = new WebSocket('ws://localhost:3500');
 
 let toServerMsg = {
@@ -70,7 +71,7 @@ let toServerMsg = {
 
 let send = document.getElementById('send');
 send.addEventListener('click', () => {
-  console.log(location.host)
+  console.log(url)
   ws.send(JSON.stringify(toServerMsg));
 });
 
