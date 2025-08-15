@@ -55,9 +55,13 @@ let main = () => {
     createInputRow(art, kategorie, time());
     clearInputField();
 };
+
+// switch ssl on local
 let url = "wss://" + location.host;
-let ws = new WebSocket(url); // Assuming ws:// is appropriate
-// let ws = new WebSocket('ws://localhost:3500');
+if(location.host === 'localhost:3500'){
+  url = "ws://" + location.host;
+}
+let ws = new WebSocket(url);
 
 let toServerMsg = {
   zahl1: 1,
@@ -71,11 +75,10 @@ let toServerMsg = {
 
 let send = document.getElementById('send');
 send.addEventListener('click', () => {
-  console.log(url)
   ws.send(JSON.stringify(toServerMsg));
 });
 
-ws.addEventListener('message', (msg)=>{
+ws.addEventListener('message', (msg) => {
   let fromServerMsg = msg.data;
   console.log(JSON.parse(fromServerMsg))
 });
